@@ -1,0 +1,30 @@
+<html ng-app="chatApp">
+    <head>
+        <script src="angular.min.js"></script>
+        <script src="app.js"></script>
+        <link rel="stylesheet" href="bootstrap.css">
+       
+    </head>
+    <body>
+
+            <div ng-controller="todoCtrl as todo">
+                <input type="text" class="form-control" ng-model="todo.task">
+                <button class="btn btn-success btn-lg btn-block" ng-click="todo.addTask(todo.task)">Add</button>
+
+                <ul class="list-group">
+                    <li class="list-group-item" ng-class="{'list-group-item-danger':!item.status,'list-group-item-success':item.status}" ng-repeat="item in todo.tasks">{{item.text}}
+                        <button class="btn btn-danger" ng-click="todo.removeTask($index)">X</button>
+                        <button class="btn btn-success" ng-click="todo.taskCompleted($index)">Done</button>
+                        <span>{{item.time | date:"dd/MMM hh:mm:ss"}}</span>
+                    </li>
+                </ul>
+
+
+
+
+            </div>
+
+
+        </div>
+    </body>
+</html>
