@@ -1,0 +1,10 @@
+{
+  "name": "cleverbot",
+  "app_id": "",
+  "type": "ionic1",
+  "watchPatterns": [],
+  "integrations": {
+    "gulp": {},
+    "cordova": {}
+  }
+}

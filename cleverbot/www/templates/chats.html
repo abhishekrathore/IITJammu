@@ -1,0 +1,34 @@
+<ion-view hide-nav-bar="true">
+    <ion-header-bar align-title="center" style="background-color: #D91E18">
+        <h1 class="title" style="color: white">Chat Bot</h1>
+    </ion-header-bar>
+    <ion-content scroll="true" class="has-header has-footer stable-bg">
+        <div class="row">
+            <div class="col" id="messagesContent">
+                <p class="text-center text-small bold"> 22 Mar, 2017</p>
+                <div class="row" ng-repeat="msg in chat.chats">
+                    <div class="col relative">
+                        <span class="chat-bubble" ng-class="{'right':msg.name=='You','left iten-text-wrap':msg.name=='Cleverbot'}" ng-style="chat.maxWidth">
+                            {{msg.name}} : {{msg.text}}
+                        </span>
+                    </div>
+                </div>
+                <!-- <div class="row">
+                    <div class="col relative">
+                        <span class="chat-bubble left iten-text-wrap" ng-style="chat.maxWidth">
+                            Hello, Brother
+                        </span>
+                    </div>
+                </div> -->
+             
+            </div>
+        </div>
+    </ion-content>
+    <ion-footer-bar style="border-top:2px solid lightgrey; border-bottom:2px solid lightgrey; padding:0">
+        <textarea type="text" placeholder="Send a message...." ng-model="chat.msg" class="item-input col-90 chatbox" ng-keypress="$event.charCode==13 && chat.send(chat.msg)">
+      </textarea>
+
+        <button type="button" class="button button-icon icon ion-android-send otb-pink padding-0" style="padding: 0px!important;" ng-click="chat.send(chat.msg)">
+        </button>
+    </ion-footer-bar>
+</ion-view>
