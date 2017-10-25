@@ -1,0 +1,47 @@
+<html ng-app="chatApp">
+        <head>
+            <script src="angular.min.js"></script>
+            <script src="app.js"></script>
+            <link rel="stylesheet" href="bootstrap.css">
+    
+    <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyCOh07FvgZb-6Vn2OTvqg1cY49xlmtdXdA",
+        authDomain: "mychat-3b26f.firebaseapp.com",
+        databaseURL: "https://mychat-3b26f.firebaseio.com",
+        projectId: "mychat-3b26f",
+        storageBucket: "mychat-3b26f.appspot.com",
+        messagingSenderId: "594936244510"
+      };
+      firebase.initializeApp(config);
+    
+      
+    </script>
+    <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+    
+           
+        </head>
+        <body>
+    
+    
+            <div ng-controller="chatCtrl as chat">
+                    
+                    <input type="text" ng-model="chat.name" placeholder="name">
+                    <input type="text" ng-model="chat.text" placeholder="message">
+                    
+                    <button ng-click="chat.send(chat.text,chat.name)">Send</button>
+                    {{chat.gender}}
+                    
+                    <p ng-repeat="msg in chat.chats">
+                       <strong>{{msg.name}}</strong> : {{msg.text}}
+                    </p>
+                    
+            </div>
+    
+    
+    
+       
+        </body>
+    </html>

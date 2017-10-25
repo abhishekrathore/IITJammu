@@ -16,7 +16,8 @@ function chatCtrl($firebaseArray,$http){
     chat.chats.$add({text:msg,name:name})
     $http.get("https://api.genderize.io/?name="+chat.name)
     .then(function(result){
-        chat.gender = result.gender
+        console.log(result)
+        chat.gender = result.data.gender
     }).catch(function(err){
         console.log(err)
     })
