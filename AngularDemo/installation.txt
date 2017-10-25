@@ -1,0 +1,15 @@
+1. Create a Firebase Account.
+2. Create a New Application
+3. Copy the web code
+4. Database - realtime - Change Rules (Read/Write -true)
+5. NodeJS Install (npm)  [Check - cmd 'npm']
+6. npm install -g firebase-tools[Check - cmd 'firebase']
+7. npm install -g http-server
+8. Create an Account in CleverBot (Signup)
+9. Install POSTMAN 
+
+
+Optionally Download :
+
+1. Firebase.JS - https://www.gstatic.com/firebasejs/4.6.0/firebase.js
+2. AngularFire.JS - https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js

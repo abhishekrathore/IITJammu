@@ -8,13 +8,14 @@
     <body>
 
             <div ng-controller="todoCtrl as todo">
-                <input type="text" class="form-control" ng-model="todo.task">
+                <input type="text" class="form-control" ng-model="todo.task" ng-keypress="$event.charCode==13 && todo.addTask(todo.task)">
                 <button class="btn btn-success btn-lg btn-block" ng-click="todo.addTask(todo.task)">Add</button>
 
                 <ul class="list-group">
                     <li class="list-group-item" ng-class="{'list-group-item-danger':!item.status,'list-group-item-success':item.status}" ng-repeat="item in todo.tasks">{{item.text}}
                         <button class="btn btn-danger" ng-click="todo.removeTask($index)">X</button>
-                        <button class="btn btn-success" ng-click="todo.taskCompleted($index)">Done</button>
+                        <button class="btn" ng-class="{'btn-success':!item.status,'btn-warning':item.status}" ng-click="todo.taskCompleted($index)"> {{item.status ?'Undo':'Done'}}</button>
+                        <button class="btn btn-info"  ng-click="todo.taskEdit($index)">Edit</button>                        
                         <span>{{item.time | date:"dd/MMM hh:mm:ss"}}</span>
                     </li>
                 </ul>

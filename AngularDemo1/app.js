@@ -25,8 +25,13 @@ function todoCtrl(){
     }
 
     function taskCompleted(index){
-        todo.tasks[index].status = true;
+        todo.tasks[index].status = !todo.tasks[index].status;
         console.log(todo.tasks)
+    }
+
+    function editTask(index){
+        todo.task.text = ""
+        
     }
 
     todo.addTask = addTask
