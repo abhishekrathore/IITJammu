@@ -19,7 +19,7 @@ function chatCtrl($firebaseArray, $http) {
         //Use your Cleverbot API key here
         $http.get("https://www.cleverbot.com/getreply?key=CC53rdjHxp3VxXOci-xJzY5_Y1Q&input=Hi Cleverbot!")
             .then(function (response) {/*success callback*/
-                console.log(response.data.output)
+                console.log(response)
                 cs = response.data.cs
                 console.log(response.data.cs)
                 chat.chats.$add({ text: response.data.output, name: "Cleverbot" })
