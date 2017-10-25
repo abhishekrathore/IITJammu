@@ -11,6 +11,7 @@ function chatCtrl($firebaseArray, $http) {
     function send(msg, name) {
         chat.chats.$add({ text: msg, name: name })
         chat.reply(msg)
+        chat.text = ""
     }
     chat.send = send
 

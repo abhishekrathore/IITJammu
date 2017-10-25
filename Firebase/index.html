@@ -1,42 +1,47 @@
 <html ng-app="chatApp">
-    <head>
-        <script src="angular.min.js"></script>
-        <script src="app.js"></script>
-        <link rel="stylesheet" href="bootstrap.css">
 
-<script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyAJMtBVHETh6qW3A-_2MTblzGlKIwGxlEk",
-    authDomain: "teak-trainer-135623.firebaseapp.com",
-    databaseURL: "https://teak-trainer-135623.firebaseio.com",
-    projectId: "teak-trainer-135623",
-    storageBucket: "",
-    messagingSenderId: "219213959216"
-  };
-  firebase.initializeApp(config);
-</script>
-  
+<head>
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="bootstrap.css">
 
-<script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyAJMtBVHETh6qW3A-_2MTblzGlKIwGxlEk",
+            authDomain: "teak-trainer-135623.firebaseapp.com",
+            databaseURL: "https://teak-trainer-135623.firebaseio.com",
+            projectId: "teak-trainer-135623",
+            storageBucket: "",
+            messagingSenderId: "219213959216"
+        };
+        firebase.initializeApp(config);
 
-       
-    </head>
-    <body>
+    </script>
 
 
-        <div ng-controller="chatCtrl as chat">
-                <input type="text" ng-model="chat.name" placeholder="Username">
-                <input type="text" ng-model="chat.text" placeholder="Your message!">
-                
+    <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
 
-                <button ng-click="chat.send(chat.text,chat.name)">Send</button>
-                <p ng-repeat="msg in chat.chats">
-                   {{msg.name}} : {{msg.text}}
-                </p>
-                
+
+</head>
+
+<body>
+
+
+    <div ng-controller="chatCtrl as chat">
+        <div class="form-horizontal">
+            <input class="form-control" type="text" ng-model="chat.name" placeholder="Username">
         </div>
-   
-    </body>
+        <input class="form-control" type="text" ng-model="chat.text" placeholder="Your message!" ng-keypress="$event.charCode==13 && chat.send(chat.text,chat.name)">
+
+        <button class="btn btn-success btn-block" ng-click="chat.send(chat.text,chat.name)">Send</button>
+        <p ng-repeat="msg in chat.chats">
+            {{msg.name}} : {{msg.text}}
+        </p>
+
+    </div>
+
+</body>
+
 </html>
